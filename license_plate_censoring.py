@@ -10,8 +10,8 @@ Polygon = List[Coordinate]
 residing_directory: str = os.path.dirname(os.path.realpath(__file__))
 
 
-def get_regions_occupied_by_license_plates(image_path: str) -> List[Polygon]:
-    openalpr_recognizer = Alpr("eu", "/usr/local/etc/openalpr/openalpr.conf",
+def get_regions_occupied_by_license_plates(image_path: str, model_region: str="eu") -> List[Polygon]:
+    openalpr_recognizer = Alpr(model_region, "/usr/local/etc/openalpr/openalpr.conf",
                                "/usr/local/Cellar/openalpr/HEAD-de93f21_1/share/openalpr/runtime_data/")
 
     if not openalpr_recognizer.is_loaded():
